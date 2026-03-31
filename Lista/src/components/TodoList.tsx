@@ -1,0 +1,15 @@
+import TodoInput from "./TodoInput"
+
+export default function TodoList({items}) {
+    return (
+        <div>
+            <ul>
+                {items.map((item, index) => (
+                    <li key={index}>
+                        {item}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+}
