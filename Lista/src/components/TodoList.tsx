@@ -1,4 +1,5 @@
 import TodoInput from "./TodoInput"
+import "./TodoList.css";
 
 export default function TodoList({items}) {
     return (
@@ -6,7 +7,8 @@ export default function TodoList({items}) {
             <ul>
                 {items.map((item, index) => (
                     <li key={index}>
-                        {item}
+                        <input type="checkbox" id={`item-${index}`} />
+                        <span>{item}</span>
                     </li>
                 ))}
             </ul>
