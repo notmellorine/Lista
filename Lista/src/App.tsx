@@ -6,6 +6,7 @@ function App() {
 
   const [input, setInput] = useState("")
   const [list, setList] = useState([])
+  
   const addTarefa = () => {
     if(input.trim() !== "") {
       setList([...list, input])
@@ -13,13 +14,24 @@ function App() {
     }
   }
 
+  const deleteTarefa = (index) => {
+    const newList = list.filter((_, i) => i !== index);
+    setList(newList);
+    }
+
+    const editTarefa = (index) => {
+      const valorParaEditar = list[index];
+      setInput(valorParaEditar);
+      deleteTarefa(index);
+    }
+
   return (
     <div>
       <div>
         <TodoInput input={input} setInput={setInput} addTarefa={addTarefa} />
       </div>
       <div>
-        <TodoList items={list} />
+        <TodoList items={list} deleteTarefa={deleteTarefa} editTarefa={editTarefa} />
       </div>
     </div>
   )
